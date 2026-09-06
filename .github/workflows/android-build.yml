@@ -28,7 +28,7 @@ permissions:
 env:
   # The one variable that separates the arms: on baseline, action-checkout
   # skips its Set up Chalk step entirely.
-  CHALK_ON: ${{ github.event_name == 'workflow_dispatch' && inputs.leg != 'baseline' }}
+  CHALK_ON: ${{ inputs.leg == 'instrumented' }}
   SETUP_JAVA_VERSION: 21.0.11+10.0.LTS
 
 run-name: "Android CI ${{ inputs.leg || 'push' }} ${{ inputs.racecar_run }}"
